@@ -15,6 +15,9 @@ function Book(title, author, pages, isRead) {
   this.author = author;
   this.pages = pages;
   this.isRead = isRead;
+  this.toggleRead = function () {
+    this.isRead = !this.isRead;
+  };
   this.getBookHTML = function () {
     return `
         <div class="card">
@@ -55,10 +58,8 @@ function addBookToLibrary(event) {
 function toggleReadStatus(id) {
   myLibrary = myLibrary.map((book) => {
     if (book.id === id) {
-      return {
-        ...book,
-        isRead: !book.isRead,
-      };
+      book.toggleRead();
+      return book;
     }
     return book;
   });
