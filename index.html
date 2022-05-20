@@ -12,7 +12,7 @@
       <!-- Modal content -->
       <div class="modal-content">
         <span class="close">&times;</span>
-        <form action="/index.html" method="get">
+        <form action="/index.html" method="get" id="new-book-form">
           <div class="input-field">
             <label for="book-name">Book</label>
             <input
@@ -24,15 +24,20 @@
           </div>
           <div class="input-field">
             <label for="author-name">Author</label>
-            <input type="text" placeholder="e.g. J.K. Rowling" required />
+            <input
+              type="text"
+              placeholder="e.g. J.K. Rowling"
+              id="author-name"
+              required
+            />
           </div>
           <div class="input-field">
-            <label for="pages">Number of Pages</label>
-            <input type="number" id="pages" required />
+            <label for="pages-num">Number of Pages</label>
+            <input type="number" id="pages-num" required />
           </div>
           <div class="input-field">
             <label for="read">Have you read this book?</label>
-            <input type="checkbox" id="read" required />
+            <input type="checkbox" id="read" />
           </div>
           <button class="btn" type="submit">Add</button>
         </form>
@@ -45,43 +50,8 @@
       </nav>
     </header>
     <main>
-      <div class="books">
-        <div class="card">
-          <div class="title">Harry Potter</div>
-          <div class="author">By J.K. Rowling</div>
-          <div class="pages">400 pages</div>
-          <button class="book-read">I have read this book</button>
-          <button class="remove-book">Remove</button>
-        </div>
-        <div class="card">
-          <div class="title">Harry Potter</div>
-          <div class="author">By J.K. Rowling</div>
-          <div class="pages">400 pages</div>
-          <button class="book-read">I have read this book</button>
-          <button class="remove-book">Remove</button>
-        </div>
-        <div class="card">
-          <div class="title">Harry Potter</div>
-          <div class="author">By J.K. Rowling</div>
-          <div class="pages">400 pages</div>
-          <button class="book-read">I have read this book</button>
-          <button class="remove-book">Remove</button>
-        </div>
-        <div class="card">
-          <div class="title">Harry Potter</div>
-          <div class="author">By J.K. Rowling</div>
-          <div class="pages">400 pages</div>
-          <button class="book-read">I have read this book</button>
-          <button class="remove-book">Remove</button>
-        </div>
-        <div class="card">
-          <div class="title">Harry Potter</div>
-          <div class="author">By J.K. Rowling</div>
-          <div class="pages">400 pages</div>
-          <button class="book-read">I have read this book</button>
-          <button class="remove-book">Remove</button>
-        </div>
-      </div>
+      <div class="books"></div>
     </main>
+    <script src="/script.js"></script>
   </body>
 </html>
