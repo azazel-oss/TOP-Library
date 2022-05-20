@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Prompt:ital,wght@1,900&display=swap");
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f9f1f4;
+  font-family: "Poppins", sans-serif;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f9f1f4;
+  margin: auto;
+  padding: 0.6em 2em 2em 2em;
+  border: 1px solid #7d82b8;
+  border-radius: 1em;
+  width: min-content;
+  text-align: center;
+}
+
+.close {
+  align-self: flex-end;
+  padding: 0 0.4em;
+  border-radius: 50%;
+}
+
+.close:hover,
+.close:focus {
+  cursor: pointer;
+  background-color: #ef798a;
+  color: #f9f1f4;
+}
+
+form .btn {
+  margin-top: 1em;
+}
+
+.input-field {
+  margin-bottom: 0.8em;
+}
+
+label {
+  font-size: 1.2rem;
+}
+
+input {
+  display: block;
+  background-color: #613f75;
+  border: none;
+  padding: 0.6em;
+  font-family: "Poppins";
+  color: #f9f1f4;
+  margin: 0 auto;
+}
+
+::placeholder {
+  color: #e5c3d1;
+  opacity: 0.6;
+}
+
+header {
+  display: flex;
+  background-color: #613f75;
+  color: #e5c3d1;
+  padding: 0.5em 2em;
+  align-items: center;
+  justify-content: space-around;
+  gap: 30em;
+}
+
+.logo {
+  font-family: "Prompt", cursive;
+  font-style: italic;
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+
+.btn {
+  background-color: #e5c3d1;
+  color: #613f75;
+  border: none;
+  padding: 0.8em 2em;
+  border-radius: 0.8em;
+  font-size: 1rem;
+  font-family: "Poppins";
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #d49bb3;
+  cursor: pointer;
+}
+
+.books {
+  padding: 1em;
+  display: grid;
+  gap: 1em;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 24%));
+}
+
+.card {
+  text-align: center;
+  background-color: #fff;
+  padding: 1em;
+  border-radius: 0.6em;
+  border: 2px solid #ef798a;
+  box-shadow: 0 0 5px #613f75;
+}
+
+.title {
+  font-size: 2rem;
+}
+
+.card button {
+  border: none;
+  display: block;
+  padding: 0.7em 1.5em;
+  margin: 0.3em auto;
+  text-align: center;
+  font-size: 1rem;
+  background-color: #e5c3d1;
+  border-radius: 0.6em;
+  color: #613f75;
+}
+
+.card button:hover,
+.card button:focus {
+  background-color: #d49bb3;
+  cursor: pointer;
+}

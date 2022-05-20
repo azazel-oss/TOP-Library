@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Library</title>
+  </head>
+  <body>
+    <div class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <form action="/index.html" method="get">
+          <div class="input-field">
+            <label for="book-name">Book</label>
+            <input
+              type="text"
+              placeholder="e.g. Harry Potter"
+              id="book-name"
+              required
+            />
+          </div>
+          <div class="input-field">
+            <label for="author-name">Author</label>
+            <input type="text" placeholder="e.g. J.K. Rowling" required />
+          </div>
+          <div class="input-field">
+            <label for="pages">Number of Pages</label>
+            <input type="number" id="pages" required />
+          </div>
+          <div class="input-field">
+            <label for="read">Have you read this book?</label>
+            <input type="checkbox" id="read" required />
+          </div>
+          <button class="btn" type="submit">Add</button>
+        </form>
+      </div>
+    </div>
+    <header>
+      <div class="logo">library</div>
+      <nav>
+        <button class="btn open-modal">Add Item</button>
+      </nav>
+    </header>
+    <main>
+      <div class="books">
+        <div class="card">
+          <div class="title">Harry Potter</div>
+          <div class="author">By J.K. Rowling</div>
+          <div class="pages">400 pages</div>
+          <button class="book-read">I have read this book</button>
+          <button class="remove-book">Remove</button>
+        </div>
+        <div class="card">
+          <div class="title">Harry Potter</div>
+          <div class="author">By J.K. Rowling</div>
+          <div class="pages">400 pages</div>
+          <button class="book-read">I have read this book</button>
+          <button class="remove-book">Remove</button>
+        </div>
+        <div class="card">
+          <div class="title">Harry Potter</div>
+          <div class="author">By J.K. Rowling</div>
+          <div class="pages">400 pages</div>
+          <button class="book-read">I have read this book</button>
+          <button class="remove-book">Remove</button>
+        </div>
+        <div class="card">
+          <div class="title">Harry Potter</div>
+          <div class="author">By J.K. Rowling</div>
+          <div class="pages">400 pages</div>
+          <button class="book-read">I have read this book</button>
+          <button class="remove-book">Remove</button>
+        </div>
+        <div class="card">
+          <div class="title">Harry Potter</div>
+          <div class="author">By J.K. Rowling</div>
+          <div class="pages">400 pages</div>
+          <button class="book-read">I have read this book</button>
+          <button class="remove-book">Remove</button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
