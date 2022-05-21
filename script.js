@@ -6,19 +6,19 @@ const pagesInputEl = document.getElementById("pages-num");
 const readInputEl = document.getElementById("read");
 const modalButton = document.querySelector(".open-modal");
 const modalEl = document.querySelector(".modal");
-let myLibrary = [];
-displayBooks();
 
-function Book(title, author, pages, isRead) {
-  this.id = Math.random();
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.isRead = isRead;
-  this.toggleRead = function () {
+class Book {
+  constructor(title, author, pages, isRead) {
+    this.id = Math.random();
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.isRead = isRead;
+  }
+  toggleRead = function () {
     this.isRead = !this.isRead;
   };
-  this.getBookHTML = function () {
+  getBookHTML = function () {
     return `
         <div class="card">
           <div class="title">${this.title}</div>
@@ -27,56 +27,58 @@ function Book(title, author, pages, isRead) {
           <div>Read status: ${
             this.isRead ? "Completed" : "Not Completed Yet"
           }</div>
-          <button data-id=${this.id} onclick="toggleReadStatus(${
+          <button data-id=${this.id} onclick="Book.toggleReadStatus(${
       this.id
     })" class="book-read">${
       this.isRead ? "I haven't read this book" : "I have read this book"
     }
           </button>
-          <button data-id=${this.id} onclick="removeBook(${
+          <button data-id=${this.id} onclick="Book.removeBook(${
       this.id
     })" class="remove-book">Remove</button>
         </div>
     `;
   };
-}
-
-function addBookToLibrary(event) {
-  event.preventDefault();
-  const title = titleInputEl.value;
-  const author = authorInputEl.value;
-  const pages = pagesInputEl.value;
-  const isRead = readInputEl.checked;
-  const newBook = new Book(title, author, pages, isRead);
-  myLibrary.push(newBook);
-  console.log(myLibrary);
-  this.reset();
-  closeModal();
-  displayBooks();
-}
-
-function toggleReadStatus(id) {
-  myLibrary = myLibrary.map((book) => {
-    if (book.id === id) {
-      book.toggleRead();
+  static displayBooks() {
+    booksEl.innerHTML = `${myLibrary
+      .map((book) => book.getBookHTML())
+      .join("")}`;
+  }
+  static addBookToLibrary(event) {
+    event.preventDefault();
+    const title = titleInputEl.value;
+    const author = authorInputEl.value;
+    const pages = pagesInputEl.value;
+    const isRead = readInputEl.checked;
+    const newBook = new Book(title, author, pages, isRead);
+    myLibrary.push(newBook);
+    this.reset();
+    closeModal();
+    Book.displayBooks();
+  }
+  static toggleReadStatus(id) {
+    myLibrary = myLibrary.map((book) => {
+      if (book.id === id) {
+        book.toggleRead();
+        return book;
+      }
       return book;
-    }
-    return book;
-  });
-  displayBooks();
+    });
+    Book.displayBooks();
+  }
+  static removeBook(id) {
+    myLibrary = myLibrary.filter((book) => book.id !== id);
+    Book.displayBooks();
+  }
 }
+let myLibrary = [];
+Book.displayBooks();
 
-function removeBook(id) {
-  myLibrary = myLibrary.filter((book) => book.id !== id);
-  displayBooks();
-}
+formEl.addEventListener("submit", Book.addBookToLibrary);
 
-function displayBooks() {
-  booksEl.innerHTML = `${myLibrary.map((book) => book.getBookHTML()).join("")}`;
-}
-
-formEl.addEventListener("submit", addBookToLibrary);
-
+/*
+All of these methods are to open/close the modal
+*/
 modalButton.addEventListener("click", () => {
   modalEl.style.display = "block";
 });
